@@ -1,26 +1,23 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <nav>
+    <router-link to="/">Home</router-link> |
+    <router-link to="/about">About</router-link>
+  </nav>
+  <router-view/>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import { mixinWebsocket } from '@/utils/ws';
+
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  },
-  mixins: [mixinWebsocket],
+    mixins: [mixinWebsocket],
     created(){
-        this.initWebsocket(); //開啓前後端的websocket通道
+        //this.initWebsocket(); //開啓前後端的websocket通道
     },
     destroy(){
-        this.websocketclose(); //關閉websocket通道
+        //this.websocketclose(); //關閉websocket通道
     }
 }
 </script>
-
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -28,6 +25,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+nav {
+  padding: 30px;
+}
+
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
