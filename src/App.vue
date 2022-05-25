@@ -7,11 +7,12 @@
 </template>
 <script>
 import { mixinWebsocket } from '@/utils/ws';
-
+import { myTestMixin } from '@/utils/test';
 export default {
-    mixins: [mixinWebsocket],
+    mixins: [mixinWebsocket,myTestMixin],
     created(){
         //this.initWebsocket(); //開啓前後端的websocket通道
+        this.hello();
     },
     destroy(){
         //this.websocketclose(); //關閉websocket通道

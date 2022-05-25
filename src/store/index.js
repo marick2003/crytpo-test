@@ -22,7 +22,7 @@ export default createStore({
       state.wsNotify=param;
     },
     increment(state) {
-      state.Timer--;
+      state.Timer++;
     }
 
   },
@@ -30,19 +30,7 @@ export default createStore({
     incrementAsync ({ commit }) {
       commit('increment');
     },
-    async startCounter({ state }) {
-      state.counter = true;
-      while (state.count > 0 && state.counter) {
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        if (state.counter)
-          state.count--;
-      }
-      state.counter = false;
-    },
-    resetCounter({ state }) {
-      state.count = 5;
-      state.counter = false;
-    }
+   
   },
   modules: {
   }
