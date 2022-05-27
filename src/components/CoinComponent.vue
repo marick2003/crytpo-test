@@ -17,8 +17,7 @@
               <td>{{ index+1 }}</td>
               <td>{{ coin.CoinInfo.Name }}</td>
               <td>{{ coin.DISPLAY.USD.PRICE }}</td>
-              
-              <td v-on:click="show(coin.Name)"><img width="35" height="35" :src="'https://www.cryptocompare.com/'+coin.CoinInfo.ImageUrl" alt="" /></td>
+              <td v-on:click="show(coin.Name)" align="center"><img width="35" height="35" :src="'https://www.cryptocompare.com/'+coin.CoinInfo.ImageUrl" alt="" /></td>
             </tr>
             </tbody>
           </table>
@@ -34,7 +33,7 @@
               <div class="form-group">
                 <label>
                   <select v-model="coinName">
-                    <option v-for="coin in coins" v-bind:key="coin.id">{{ coin.Name }}</option>
+                    <option v-for="coin in coins" v-bind:key="coin.id">{{ coin.CoinInfo.Name }}</option>
                   </select>
                 </label>
               </div>
